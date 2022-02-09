@@ -1,0 +1,1 @@
+A question answer platform with ownership rights
