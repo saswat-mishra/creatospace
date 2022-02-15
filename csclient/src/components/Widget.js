@@ -2,7 +2,17 @@ import React from 'react'
 
 function Widget() {
   return (
-    <div>Widget</div>
+    <div className='widget'>
+      Widget
+      <div className='widget_header'>
+        Spaces to follow
+
+      </div>
+      <div className='widget_content'>
+        Widget contents
+
+      </div>
+    </div>
   )
 }
 

@@ -10,30 +10,30 @@
     box-shadow: 0px 5px 8px -9px solid rgab(0, 0, 0, 0.5);
   }
   
-  .post__info {
+  .post_info {
     display: flex;
     align-items: center;
   }
   
-  .post__info > h4 {
+  .post_info > h4 {
     margin-left: 10px;
     cursor: pointer;
     font-size: 13px;
   }
-  .post__info > h4:hover {
+  .post_info > h4:hover {
     text-decoration: underline;
   }
   
-  .post__info > small {
+  .post_info > small {
     margin-left: 10px;
   }
   
-  .post__body {
+  .post_body {
     display: flex;
     flex-direction: column;
   }
   
-  .post__body > .post__question {
+  .post_body > .post_question {
     margin-top: 10px;
     font-weight: bold;
     margin-bottom: 10px;
@@ -43,7 +43,7 @@
     flex: 1;
   }
   
-  .post__question > .post__btnAnswer {
+  .post_question > .post_btnAnswer {
     margin-left: auto;
     cursor: pointer;
     padding: 7px;
@@ -56,16 +56,16 @@
     border-radius: 5px;
   }
   
-  .post__btnAnswer:hover {
+  .post_btnAnswer:hover {
     color: #222;
     background: lightgray;
   }
   
-  .post__question > p:hover {
+  .post_question > p:hover {
     text-decoration: underline;
   }
   
-  .post__body > .post__answer > p {
+  .post_body > .post_answer > p {
     margin-bottom: 10px;
   }
   
@@ -73,7 +73,7 @@
     background: rgb(0, 140, 255);
   } */
   
-  .post__body > img {
+  .post_body > img {
     width: 100%;
     max-height: 400px;
     object-fit: contain;
@@ -83,19 +83,19 @@
     margin-top: 10px;
   }
   
-  .post__footer {
+  .post_footer {
     display: flex;
     align-items: center;
     margin-top: 5px;
   }
   
-  .post__footer > .MuiSvgIcon-root {
+  .post_footer > .MuiSvgIcon-root {
     color: gray;
     margin-right: 40px;
     cursor: pointer;
   }
   
-  .post__footerAction {
+  .post_footer_action {
     background-color: lightgray;
     padding: 5px;
     align-items: center;
@@ -103,22 +103,22 @@
     justify-content: space-around;
     border-radius: 33px;
   }
-  .post__footerAction > .MuiSvgIcon-root {
+  .post_footer_action > .MuiSvgIcon-root {
     color: gray;
     margin-right: 40px;
     cursor: pointer;
   }
   
-  .post__footerAction > .MuiSvgIcon-root:hover {
+  .post_footer_action > .MuiSvgIcon-root:hover {
     color: rgb(0, 140, 255);
     margin-right: 40px;
   }
   
-  .post__footerLeft {
+  .post_footer_right {
     margin-left: auto;
   }
   
-  .post__footerLeft > .MuiSvgIcon-root {
+  .post_footer_right > .MuiSvgIcon-root {
     color: gray;
     cursor: pointer;
     margin-left: 30px;
