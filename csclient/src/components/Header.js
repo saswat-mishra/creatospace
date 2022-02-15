@@ -1,8 +1,9 @@
 import React from 'react'
 import HomeIcon from "@material-ui/icons/Home";
+import "./css/Header.css";
 function Header() {
     return (
-        <div>Header
+        <div className='header'>
             <div className='headercontent'>
                 <div className='headerlogo'>
                     <img src={require("../images/logo.png")} alt='logo'/>
