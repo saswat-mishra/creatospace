@@ -4,6 +4,8 @@ import Modal from "react-responsive-modal";
 import "react-responsive-modal/styles.css"
 import ReactQuill, { Quill } from "quill"
 import 'quill/dist/quill.snow.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUpLong, faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons'
 
 
 
@@ -25,6 +27,7 @@ function Post() {
                     <p>
                         Test Question?
                     </p>
+
 
                     <button className='post_answer' onClick={() => setIsModalOpen(true)}>
                         Answer
@@ -56,10 +59,11 @@ function Post() {
             </div>
             <div className='post_footer'>
                 <div className='post_footer_action'>
-                    Upvote
+                <FontAwesomeIcon icon={faArrowUp} />
+
                 </div>
                 <div className='post_footer_action'>
-                    Downvote
+                <FontAwesomeIcon icon={faArrowDown} />
                 </div>
                 <div className='post_footer_action'>
                     Comment

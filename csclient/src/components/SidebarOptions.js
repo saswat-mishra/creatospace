@@ -12,12 +12,12 @@ function SidebarOptions() {
             </div>
             <div className='sidebar_option'>
                 <img src="https://imageio.forbes.com/specials-images/imageserve/5ea6d49e165a170006a5d625/Golden-bitcoin-background/960x0.jpg?fit=bounds&format=jpg&width=200" />
-                <p>Crypto</p>
+                <p>Finance</p>
 
             </div>
             <div className='sidebar_option'>
                 <img src="https://imageio.forbes.com/specials-images/imageserve/5ea6d49e165a170006a5d625/Golden-bitcoin-background/960x0.jpg?fit=bounds&format=jpg&width=200" />
-                <p>Crypto</p>
+                <p>Buisness</p>
 
             </div>
             <div className='sidebar_option'>

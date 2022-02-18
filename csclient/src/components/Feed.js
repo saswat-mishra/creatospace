@@ -8,6 +8,8 @@ function Feed() {
     <div className='feed'>
         <FeedBox/>
         <Post/>
+        <Post/>
+
     </div>
   )
 }
