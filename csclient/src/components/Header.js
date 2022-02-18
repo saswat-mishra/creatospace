@@ -3,10 +3,13 @@ import HomeIcon from "@material-ui/icons/Home";
 import Modal from "react-responsive-modal";
 import "react-responsive-modal/styles.css"
 import "./css/Header.css";
+import { Input } from '@material-ui/core';
 function Header() {
 
     const [isModalOpen, toggleModal] = useState(false)
+    const [inputUrl, setInputUrl] = useState("")
     const Close = ("Close")
+
 
     return (
         <div className='header'>
@@ -33,9 +36,10 @@ function Header() {
                 </div>
                 <Modal open={isModalOpen} closeIcon={Close} onClose={()=>toggleModal(false)} closeOnEsc={true} center closeOnOverlayClick={false} >
                     <div className='modal_title'>
-                        This is modal title
+                        <h5>Add Question</h5>
+                        <h5>Share Link</h5>
                         <br></br>
-
+{/* 
                         Enter question
 
 
@@ -43,7 +47,44 @@ function Header() {
                         <input >
                         </input>
                         <br></br>
-                        Submit
+                        Submit */}
+
+                    </div>
+                    <div className='modal_field'>   
+                    <Input type='text' placeholder='Start your question here'>
+                    </Input>
+                    <div style={
+                        {
+                            display:"flex",
+                            flexDirection:"column"
+                        }
+
+
+                    }>
+                        <input type="text" placeholder="Image URL" value={inputUrl} onChange = {(e) => setInputUrl(e.target.value)} style={
+                            {
+                                margin: "5px 0",
+                                border:"1px solid lightgray",
+                                padding:"10px",
+                                outline:"2px solid black"
+                            }
+                        }>
+                        </input>
+
+                        {inputUrl!==''&&<img src={inputUrl} alt='display image' style={{
+                            height:"40vh",
+                            objectFit:"contain"
+                        }}/>}
+
+                    </div>
+
+                    <div className='modal_buttons'>
+                        <button className='cancel' onClick={()=> toggleModal(false)}>Cancel</button>
+                        <button type="submit" className='submit_question'>Submit</button>
+
+                    </div>
+
+
 
                     </div>
                 </Modal>

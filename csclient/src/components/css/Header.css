@@ -120,14 +120,14 @@
     background: rgb(214, 214, 214);
   }
   
-  .modal__title {
+  .modal_title {
     display: flex;
     align-items: center;
     margin-bottom: 5px;
     border-bottom: 1px solid rgba(187, 187, 187, 0.5);
   }
   
-  .modal__title > h5 {
+  .modal_title > h5 {
     color: gray;
     font-size: 20px;
     cursor: pointer;
@@ -135,23 +135,23 @@
     margin-right: 30px;
   }
   
-  .modal__title > h5:hover {
+  .modal_title > h5:hover {
     color: #b92b27;
   }
   
-  .modal__info {
+  .modal_info {
     display: flex;
     align-items: center;
     margin-top: 30px;
   }
   
-  .modal__info > p {
+  .modal_info > p {
     margin-left: 10px;
     font-size: small;
     color: gray;
   }
   
-  .modal__info > .modal__scope {
+  .modal_info > .modal__scope {
     display: flex;
     align-items: center;
     color: rgb(98, 98, 98);
@@ -162,35 +162,35 @@
     cursor: pointer;
   }
   
-  .modal__Field {
+  .modal_field {
     display: flex;
     flex-direction: column;
     margin-top: 30px;
     flex: 1;
   }
   
-  .modal__Field > .modal__fieldLink {
+  .modal_field > .modal__fieldLink {
     color: gray;
     display: flex;
     margin-top: 10px;
     align-items: center;
   }
   
-  .modal__Field > .modal__fieldLink > input {
+  .modal_field > .modal__fieldLink > input {
     flex: 1;
     border: none;
     outline: none;
     margin-left: 5px;
   }
   
-  .modal__buttons {
+  .modal_buttons {
     display: flex;
     flex-direction: column-reverse;
     margin-top: 10px;
     align-items: center;
   }
   
-  .modal__buttons > .cancle {
+  .modal_buttons > .cancel {
     margin-top: 10px;
     border: none;
     outline: none;
@@ -201,11 +201,11 @@
     cursor: pointer;
   }
   
-  .modal__buttons > .cancle:hover {
+  .modal_buttons > .cancel:hover {
     color: red;
   }
   
-  .modal__buttons > .add {
+  .modal_buttons > .submit_question {
     border: none;
     outline: none;
     margin-top: 10px;
@@ -218,7 +218,7 @@
     width: 50%;
   }
   
-  .modal__buttons > .add:hover {
+  .modal_buttons > .submit_question:hover {
     background-color: #eee;
     color: #222;
   }
