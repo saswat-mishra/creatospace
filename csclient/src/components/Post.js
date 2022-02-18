@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import "./css/post.css"
 import Modal from "react-responsive-modal";
 import "react-responsive-modal/styles.css"
-import ReactQuill from "quill"
+import ReactQuill, { Quill } from "quill"
 import 'quill/dist/quill.snow.css'
 
 
@@ -29,19 +29,9 @@ function Post() {
                     <button className='post_answer' onClick={() => setIsModalOpen(true)}>
                         Answer
                     </button>
-                    <Modal
-                        open={isModalOpen}
-                        closeIcon={Close}
-                        onClose={() => setIsModalOpen(false)}
-                        closeOnEsc
-                        center
-                        closeOnOverlayClick={false}
-                        styles={{
-                            overlay: {
-                                height: "auto"
-                            }
-                        }}
-                    >
+                    <Modal open={isModalOpen} closeIcon={Close} onClose={() => setIsModalOpen(false)} closeOnEsc={true} center closeOnOverlayClick={false} styles={{overlay:{
+                    height:"auto"
+                }}}>
                         <div className='modal_question'>
                             <h1>This is test question</h1>
                             <p>Asked by <span>Username</span> on timestamp</p>
@@ -49,9 +39,8 @@ function Post() {
                         </div>
 
                         <div className='modal_answer'>
-                            <ReactQuill placeholder="Enter your answer">
 
-                            </ReactQuill>
+                        {/* <Quill></Quill> */}
 
                         </div>
 
@@ -60,6 +49,7 @@ function Post() {
                             <button type="submit" className='submit_question'>Submit</button>
 
                         </div>
+                        Test modal
                     </Modal>
                 </div>
 
