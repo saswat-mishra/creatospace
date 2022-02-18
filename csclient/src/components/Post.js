@@ -1,8 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./css/post.css"
+import Modal from "react-responsive-modal";
+import "react-responsive-modal/styles.css"
+import ReactQuill from "quill"
+import 'quill/dist/quill.snow.css'
+
 
 
 function Post() {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const Close = ("Close")
     return (
         <div className='post'>
             <div className='post_info'>
@@ -13,12 +20,49 @@ function Post() {
 
             </div>
             <div className='post_body'>
-                <p>
-                    Test Question?
-                </p>
-                <button className='post_answer'>
-                    Answer
-                </button>
+                <div className='post_question'>
+
+                    <p>
+                        Test Question?
+                    </p>
+
+                    <button className='post_answer' onClick={() => setIsModalOpen(true)}>
+                        Answer
+                    </button>
+                    <Modal
+                        open={isModalOpen}
+                        closeIcon={Close}
+                        onClose={() => setIsModalOpen(false)}
+                        closeOnEsc
+                        center
+                        closeOnOverlayClick={false}
+                        styles={{
+                            overlay: {
+                                height: "auto"
+                            }
+                        }}
+                    >
+                        <div className='modal_question'>
+                            <h1>This is test question</h1>
+                            <p>Asked by <span>Username</span> on timestamp</p>
+
+                        </div>
+
+                        <div className='modal_answer'>
+                            <ReactQuill placeholder="Enter your answer">
+
+                            </ReactQuill>
+
+                        </div>
+
+                        <div className='modal_buttons'>
+                            <button className='cancel' onClick={() => setIsModalOpen(false)}>Cancel</button>
+                            <button type="submit" className='submit_question'>Submit</button>
+
+                        </div>
+                    </Modal>
+                </div>
+
             </div>
             <div className='post_footer'>
                 <div className='post_footer_action'>
@@ -61,7 +105,7 @@ function Post() {
 
                     </div>
                     <div className='post_answer'>
-                            Test answer
+                        Test answer
                     </div>
 
 

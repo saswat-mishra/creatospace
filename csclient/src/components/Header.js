@@ -15,12 +15,12 @@ function Header() {
         <div className='header'>
             <div className='headercontent'>
                 <div className='headerlogo'>
-                    <img src={require("../images/logo.png")} alt='logo'/>
+                    <img src={require("../images/logo.png")} alt='logo' />
 
                 </div>
                 <div className='headericons'>
                     <div className='headericon'>
-                        <HomeIcon/>
+                        <HomeIcon />
 
                     </div>
                     {/* TODO add more icons */}
@@ -34,12 +34,14 @@ function Header() {
                 <div onClick={() => toggleModal(true)}>
                     Add Question
                 </div>
-                <Modal open={isModalOpen} closeIcon={Close} onClose={()=>toggleModal(false)} closeOnEsc={true} center closeOnOverlayClick={false} >
+                <Modal open={isModalOpen} closeIcon={Close} onClose={() => toggleModal(false)} closeOnEsc={true} center closeOnOverlayClick={false} styles={{overlay:{
+                    height:"auto"
+                }}}>
                     <div className='modal_title'>
                         <h5>Add Question</h5>
                         <h5>Share Link</h5>
                         <br></br>
-{/* 
+                        {/* 
                         Enter question
 
 
@@ -50,45 +52,45 @@ function Header() {
                         Submit */}
 
                     </div>
-                    <div className='modal_field'>   
-                    <Input type='text' placeholder='Start your question here'>
-                    </Input>
-                    <div style={
-                        {
-                            display:"flex",
-                            flexDirection:"column"
-                        }
-
-
-                    }>
-                        <input type="text" placeholder="Image URL" value={inputUrl} onChange = {(e) => setInputUrl(e.target.value)} style={
+                    <div className='modal_field'>
+                        <Input type='text' placeholder='Start your question here'>
+                        </Input>
+                        <div style={
                             {
-                                margin: "5px 0",
-                                border:"1px solid lightgray",
-                                padding:"10px",
-                                outline:"2px solid black"
+                                display: "flex",
+                                flexDirection: "column"
                             }
+
+
                         }>
-                        </input>
+                            <input type="text" placeholder="Image URL" value={inputUrl} onChange={(e) => setInputUrl(e.target.value)} style={
+                                {
+                                    margin: "5px 0",
+                                    border: "1px solid lightgray",
+                                    padding: "10px",
+                                    outline: "2px solid black"
+                                }
+                            }>
+                            </input>
 
-                        {inputUrl!==''&&<img src={inputUrl} alt='display image' style={{
-                            height:"40vh",
-                            objectFit:"contain"
-                        }}/>}
+                            {inputUrl !== '' && <img src={inputUrl} alt='display image' style={{
+                                height: "40vh",
+                                objectFit: "contain"
+                            }} />}
 
-                    </div>
+                        </div>
 
-                    <div className='modal_buttons'>
-                        <button className='cancel' onClick={()=> toggleModal(false)}>Cancel</button>
-                        <button type="submit" className='submit_question'>Submit</button>
+                        <div className='modal_buttons'>
+                            <button className='cancel' onClick={() => toggleModal(false)}>Cancel</button>
+                            <button type="submit" className='submit_question'>Submit</button>
 
-                    </div>
+                        </div>
 
 
 
                     </div>
                 </Modal>
-                
+
             </div>
         </div>
     )
