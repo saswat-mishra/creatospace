@@ -1,6 +1,55 @@
 {
+  "name": "creatospace",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "dependencies": {
+    "axios": "^0.26.0",
+    "body-parser": "^1.19.2",
+    "call-bind": "^1.0.2",
+    "clone": "^2.1.2",
+    "cors": "^2.8.5",
+    "deep-equal": "^1.1.1",
+    "define-properties": "^1.1.3",
+    "eventemitter3": "^2.0.3",
+    "express": "^4.17.3",
+    "extend": "^3.0.2",
+    "fast-diff": "^1.1.2",
+    "function-bind": "^1.1.1",
+    "get-intrinsic": "^1.1.1",
+    "has": "^1.0.3",
+    "has-symbols": "^1.0.2",
+    "has-tostringtag": "^1.0.0",
+    "is-arguments": "^1.1.1",
+    "is-date-object": "^1.0.5",
+    "is-regex": "^1.1.4",
+    "js-tokens": "^4.0.0",
+    "loose-envify": "^1.4.0",
+    "mongoose": "^6.2.2",
+    "nodemon": "^2.0.15",
+    "object-assign": "^4.1.1",
+    "object-is": "^1.1.5",
+    "object-keys": "^1.1.1",
+    "parchment": "^1.1.4",
     "quill": "^1.3.7",
-    "react": "^17.0.2"
-  }
+    "quill-delta": "^3.6.3",
+    "react": "^17.0.2",
+    "regexp.prototype.flags": "^1.4.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "client": "npm start --prefix csclient",
+    "server": "nodemon csserver/server",
+    "start": "nodemon --watch csserver --exec node csserver/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rahul237/creatospace.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rahul237/creatospace/issues"
+  },
+  "homepage": "https://github.com/rahul237/creatospace#readme"
 }

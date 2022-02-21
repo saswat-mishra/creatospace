@@ -8,7 +8,7 @@ router.get('/', (req, res)=> {
     res.send("This api is meant for Creatospace")
 })
 
-router.use('questions', questionRouter)
+router.use('/questions', questionRouter)
 // router.use('answers', answerRouter)
 
 module.exports = router
