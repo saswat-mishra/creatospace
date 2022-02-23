@@ -31,7 +31,7 @@ app.get("*", (req,res)=>{
     try{
         res.sendFile(path.join(`${__dirname}/../csclient/build/index.html`))
     } catch(e){
-        console.log("Something went wrong and I dpn't know what")
+        console.log("Something went wrong and I don't know what")
     }
 })
 

@@ -4,11 +4,37 @@ import Modal from "react-responsive-modal";
 import "react-responsive-modal/styles.css"
 import "./css/Header.css";
 import { Input } from '@material-ui/core';
+import axios from 'axios';
 function Header() {
 
     const [isModalOpen, toggleModal] = useState(false)
     const [inputUrl, setInputUrl] = useState("")
+    const [question, setQuestion] = useState("")
+
     const Close = ("Close")
+
+    const handleSubmit =async() => {
+        if(question!==""){
+            const config = {
+                Headers:{
+                    "Content-Type":"application/json"
+                }
+            }
+            const body = {
+                questionName:question,
+                questionUrl:inputUrl
+            }
+            await axios.post('/api/questions',body, config).then((res)=>{
+                console.log(res.data)
+                alert(res.data.message)
+                window.location.href="/"
+            }).catch((e)=>{
+                console.log(e)
+                alert('Error in adding question')
+            })
+
+        }
+    }
 
 
     return (
@@ -34,9 +60,11 @@ function Header() {
                 <div onClick={() => toggleModal(true)}>
                     Add Question
                 </div>
-                <Modal open={isModalOpen} closeIcon={Close} onClose={() => toggleModal(false)} closeOnEsc={true} center closeOnOverlayClick={false} styles={{overlay:{
-                    height:"auto"
-                }}}>
+                <Modal open={isModalOpen} closeIcon={Close} onClose={() => toggleModal(false)} closeOnEsc={true} center closeOnOverlayClick={false} styles={{
+                    overlay: {
+                        height: "auto"
+                    }
+                }}>
                     <div className='modal_title'>
                         <h5>Add Question</h5>
                         <h5>Share Link</h5>
@@ -53,7 +81,8 @@ function Header() {
 
                     </div>
                     <div className='modal_field'>
-                        <Input type='text' placeholder='Start your question here'>
+                        <Input
+                            onChange={(e) => setQuestion(e.target.value)} type='text' placeholder='Start your question here'>
                         </Input>
                         <div style={
                             {
@@ -82,7 +111,7 @@ function Header() {
 
                         <div className='modal_buttons'>
                             <button className='cancel' onClick={() => toggleModal(false)}>Cancel</button>
-                            <button type="submit" className='submit_question'>Submit</button>
+                            <button onClick={handleSubmit} type="submit" className='submit_question'>Submit</button>
 
                         </div>
 

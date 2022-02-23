@@ -2,16 +2,49 @@ import React, { useState } from 'react'
 import "./css/post.css"
 import Modal from "react-responsive-modal";
 import "react-responsive-modal/styles.css"
-import ReactQuill, { Quill } from "quill"
+// import ReactQuill, { Quill } from "quill"
+import ReactQuill from 'react-quill'
 import 'quill/dist/quill.snow.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUpLong, faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons'
+import axios from 'axios';
 
 
 
-function Post() {
+function Post({post}) {
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [answer, setAnswer] = useState("")
     const Close = ("Close")
+
+    const handleQuill = (value) => {
+        setAnswer(value)
+        // console.log(answer)
+    }
+
+    const handleSubmit = async () => {
+        const config = {
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }
+
+        const body = {
+            answer : answer,
+            questionId: post?._id
+        }
+        if(post?._id && answer!=""){
+            await axios.post('/api/answers', body, config).then((res)=>{
+                console.log(res.data)
+                alert("Answer added succesfully")
+                setIsModalOpen(false)
+                window.location.href = '/'
+            }).catch((e)=>{
+                console.log(e)
+            })
+        }
+
+    }
+
     return (
         <div className='post'>
             <div className='post_info'>
@@ -25,7 +58,7 @@ function Post() {
                 <div className='post_question'>
 
                     <p>
-                        Test Question?
+                        {post?.questionName}
                     </p>
 
 
@@ -44,17 +77,19 @@ function Post() {
                         <div className='modal_answer'>
 
                         {/* <Quill></Quill> */}
+                        <ReactQuill value ={answer} onChange = {handleQuill} placeholder="Enter your answer"></ReactQuill>
 
                         </div>
 
                         <div className='modal_buttons'>
                             <button className='cancel' onClick={() => setIsModalOpen(false)}>Cancel</button>
-                            <button type="submit" className='submit_question'>Submit</button>
+                            <button onClick={handleSubmit} type="submit" className='submit_question'>Submit</button>
 
                         </div>
                         Test modal
                     </Modal>
                 </div>
+                <img src={post.questionUrl} alt='url'></img>
 
             </div>
             <div className='post_footer'>
@@ -79,7 +114,7 @@ function Post() {
             </div>
 
             <p>
-                3 Answers
+            {post?.allAnswers.length} {post?.allAnswers.length==1?"Answer":"Answers"}
             </p>
 
             <div className='post_answer'>
