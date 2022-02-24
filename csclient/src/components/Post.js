@@ -9,6 +9,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios';
 import ReactHtmlParser from 'html-react-parser'
+import { useSelector } from 'react-redux';
+import { selectUser } from '../feature/userSlice';
 
 
 
@@ -16,6 +18,7 @@ function Post({ post }) {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [answer, setAnswer] = useState("")
     const Close = ("Close")
+    const user = useSelector(selectUser)
 
     const handleQuill = (value) => {
         setAnswer(value)
@@ -31,7 +34,8 @@ function Post({ post }) {
 
         const body = {
             answer: answer,
-            questionId: post?._id
+            questionId: post?._id,
+            user:user
         }
         if (post?._id && answer !== "") {
             await axios.post('/api/answers', body, config).then((res) => {
@@ -50,7 +54,8 @@ function Post({ post }) {
         <div className='post'>
             <div className='post_info'>
                 Avatar
-                <h4>User Name</h4>
+                <img src={post?.user?.photo}/>
+                <h4>{post?.user?.userName}</h4>
                 <small>Timestamp</small>
 
 
@@ -73,7 +78,7 @@ function Post({ post }) {
                     }}>
                         <div className='modal_question'>
                             <h1>This is test question</h1>
-                            <p>Asked by <span>Username</span> on timestamp</p>
+                            <p>Asked by <span>{post?.user?.userName}</span> on timestamp</p>
 
                         </div>
 
@@ -126,6 +131,7 @@ function Post({ post }) {
                         post?.allAnswers?.map((_a) => (
 
                             <div className='post_answered'>
+                                <img src={_a?.user?.photo}/>
                                 <div className='post_answer'>
                                     {ReactHtmlParser(_a?.answer)}
                                 </div>
@@ -133,7 +139,7 @@ function Post({ post }) {
                                 <div className='post_info'>
 
                                     <p>
-                                        User Name
+                                    {_a?.user?.userName}
                                     </p>
                                     <span>
                                         Timestamp
