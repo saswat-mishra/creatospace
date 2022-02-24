@@ -8,10 +8,11 @@ import 'quill/dist/quill.snow.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUpLong, faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios';
+import ReactHtmlParser from 'html-react-parser'
 
 
 
-function Post({post}) {
+function Post({ post }) {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [answer, setAnswer] = useState("")
     const Close = ("Close")
@@ -29,16 +30,16 @@ function Post({post}) {
         }
 
         const body = {
-            answer : answer,
+            answer: answer,
             questionId: post?._id
         }
-        if(post?._id && answer!=""){
-            await axios.post('/api/answers', body, config).then((res)=>{
+        if (post?._id && answer != "") {
+            await axios.post('/api/answers', body, config).then((res) => {
                 console.log(res.data)
                 alert("Answer added succesfully")
                 setIsModalOpen(false)
                 window.location.href = '/'
-            }).catch((e)=>{
+            }).catch((e) => {
                 console.log(e)
             })
         }
@@ -65,9 +66,11 @@ function Post({post}) {
                     <button className='post_answer' onClick={() => setIsModalOpen(true)}>
                         Answer
                     </button>
-                    <Modal open={isModalOpen} closeIcon={Close} onClose={() => setIsModalOpen(false)} closeOnEsc={true} center closeOnOverlayClick={false} styles={{overlay:{
-                    height:"auto"
-                }}}>
+                    <Modal open={isModalOpen} closeIcon={Close} onClose={() => setIsModalOpen(false)} closeOnEsc={true} center closeOnOverlayClick={false} styles={{
+                        overlay: {
+                            height: "auto"
+                        }
+                    }}>
                         <div className='modal_question'>
                             <h1>This is test question</h1>
                             <p>Asked by <span>Username</span> on timestamp</p>
@@ -76,8 +79,8 @@ function Post({post}) {
 
                         <div className='modal_answer'>
 
-                        {/* <Quill></Quill> */}
-                        <ReactQuill value ={answer} onChange = {handleQuill} placeholder="Enter your answer"></ReactQuill>
+                            {/* <Quill></Quill> */}
+                            <ReactQuill value={answer} onChange={handleQuill} placeholder="Enter your answer"></ReactQuill>
 
                         </div>
 
@@ -89,16 +92,16 @@ function Post({post}) {
                         Test modal
                     </Modal>
                 </div>
-                <img src={post.questionUrl} alt='url'></img>
+                {(post?.questionUrl != "") && <img src={post.questionUrl} alt='url'></img>}
 
             </div>
             <div className='post_footer'>
                 <div className='post_footer_action'>
-                <FontAwesomeIcon icon={faArrowUp} />
+                    <FontAwesomeIcon icon={faArrowUp} />
 
                 </div>
                 <div className='post_footer_action'>
-                <FontAwesomeIcon icon={faArrowDown} />
+                    <FontAwesomeIcon icon={faArrowDown} />
                 </div>
                 <div className='post_footer_action'>
                     Comment
@@ -114,28 +117,37 @@ function Post({post}) {
             </div>
 
             <p>
-            {post?.allAnswers.length} {post?.allAnswers.length==1?"Answer":"Answers"}
+                {post?.allAnswers.length} {post?.allAnswers.length == 1 ? "Answer" : "Answers"}
             </p>
 
             <div className='post_answer'>
                 <div className='post_answer_container'>
-                    <div className='post_answered'>
-                        Avatar
-                        <div className='post_info'>
-                            <p>
-                                User Name
-                            </p>
-                            <span>
-                                Timestamp
-                            </span>
+                    {
+                        post?.allAnswers?.map((_a) => (
 
-                        </div>
+                            <div className='post_answered'>
+                                <div className='post_answer'>
+                                    {ReactHtmlParser(_a?.answer)}
+                                </div>
+                                Avatar
+                                <div className='post_info'>
+
+                                    <p>
+                                        User Name
+                                    </p>
+                                    <span>
+                                        Timestamp
+                                    </span>
+
+                                </div>
 
 
-                    </div>
-                    <div className='post_answer'>
-                        Test answer
-                    </div>
+                            </div>
+
+                        ))
+                    }
+
+
 
 
                 </div>
