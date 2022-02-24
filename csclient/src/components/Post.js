@@ -6,7 +6,7 @@ import "react-responsive-modal/styles.css"
 import ReactQuill from 'react-quill'
 import 'quill/dist/quill.snow.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUpLong, faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons'
+import { faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios';
 import ReactHtmlParser from 'html-react-parser'
 
@@ -33,7 +33,7 @@ function Post({ post }) {
             answer: answer,
             questionId: post?._id
         }
-        if (post?._id && answer != "") {
+        if (post?._id && answer !== "") {
             await axios.post('/api/answers', body, config).then((res) => {
                 console.log(res.data)
                 alert("Answer added succesfully")
@@ -92,7 +92,7 @@ function Post({ post }) {
                         Test modal
                     </Modal>
                 </div>
-                {(post?.questionUrl != "") && <img src={post.questionUrl} alt='url'></img>}
+                {(post?.questionUrl !== "") && <img src={post.questionUrl} alt='url'></img>}
 
             </div>
             <div className='post_footer'>
@@ -117,7 +117,7 @@ function Post({ post }) {
             </div>
 
             <p>
-                {post?.allAnswers.length} {post?.allAnswers.length == 1 ? "Answer" : "Answers"}
+                {post?.allAnswers.length} {post?.allAnswers.length === 1 ? "Answer" : "Answers"}
             </p>
 
             <div className='post_answer'>

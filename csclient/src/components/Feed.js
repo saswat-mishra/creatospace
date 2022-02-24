@@ -3,7 +3,7 @@ import FeedBox from './FeedBox'
 import './css/feed.css'
 import Post from './Post'
 import axios from 'axios'
-import { prototype } from 'quill-delta'
+// import { prototype } from 'quill-delta'
 // axios.defaults.port = 80;
 // const url = 'http://localhost:80'
 
