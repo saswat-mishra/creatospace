@@ -1,10 +1,15 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
+import { selectUser } from '../feature/userSlice'
 import "./css/feedbox.css"
 
 function FeedBox() {
+    const user = useSelector(selectUser)
+
     return (
         <div className='feedbox'>
             <div className='feedbox_info'>
+                <img src={user?.photo}/>
                 {/* <Avatar/> */}
 
             </div>

@@ -5,6 +5,10 @@ import "react-responsive-modal/styles.css"
 import "./css/Header.css";
 import { Input } from '@material-ui/core';
 import axios from 'axios';
+import { signOut } from 'firebase/auth';
+import { auth } from '../firebase';
+import { logout, selectUser } from '../feature/userSlice';
+import { useDispatch, useSelector } from 'react-redux';
 function Header() {
 
     const [isModalOpen, toggleModal] = useState(false)
@@ -12,6 +16,19 @@ function Header() {
     const [question, setQuestion] = useState("")
 
     const Close = ("Close")
+    const dispatch = useDispatch()
+
+    const user = useSelector(selectUser)
+
+    const handleLogout = () => {
+        if(window.confirm("Ado you want to log out?")){
+            signOut(auth).then(()=>{
+                dispatch(logout())
+            })
+
+        }
+        
+    }
 
     const handleSubmit =async() => {
         if(question!==""){
@@ -57,6 +74,8 @@ function Header() {
                     <div>Search Creatospace</div>
 
                 </div>
+                <img src={user?.photo}/>
+                <button onClick={handleLogout}> Logout </button>
                 <div onClick={() => toggleModal(true)}>
                     Add Question
                 </div>
