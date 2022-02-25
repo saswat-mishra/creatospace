@@ -11,6 +11,7 @@ import axios from 'axios';
 import ReactHtmlParser from 'html-react-parser'
 import { useSelector } from 'react-redux';
 import { selectUser } from '../feature/userSlice';
+import { Avatar } from '@material-ui/core';
 
 
 
@@ -53,8 +54,7 @@ function Post({ post }) {
     return (
         <div className='post'>
             <div className='post_info'>
-                Avatar
-                <img src={post?.user?.photo}/>
+                <Avatar src={post?.user?.photo}/>
                 <h4>{post?.user?.userName}</h4>
                 <small>Timestamp</small>
 
@@ -131,7 +131,7 @@ function Post({ post }) {
                         post?.allAnswers?.map((_a) => (
 
                             <div className='post_answered'>
-                                <img src={_a?.user?.photo}/>
+                                <Avatar src={_a?.user?.photo}/>
                                 <div className='post_answer'>
                                     {ReactHtmlParser(_a?.answer)}
                                 </div>

@@ -3,7 +3,7 @@ import HomeIcon from "@material-ui/icons/Home";
 import Modal from "react-responsive-modal";
 import "react-responsive-modal/styles.css"
 import "./css/Header.css";
-import { Input } from '@material-ui/core';
+import { Avatar, Input } from '@material-ui/core';
 import axios from 'axios';
 import { signOut } from 'firebase/auth';
 import { auth } from '../firebase';
@@ -64,22 +64,28 @@ function Header() {
                 </div>
                 <div className='headericons'>
                     <div className='headericon'>
-                        <HomeIcon />
+                        {/* <HomeIcon /> */}
 
                     </div>
                     {/* TODO add more icons */}
 
                 </div>
                 <div className='headerinput'>
-                    <div>search icon</div>
-                    <div>Search Creatospace</div>
+                    {/* <div>search icon</div> */}
+                    {/* <div>Search Creatospace</div> */}
 
                 </div>
-                <img src={user?.photo}/>
-                <button onClick={handleLogout}> Logout </button>
-                <div onClick={() => toggleModal(true)}>
+                <div className='btn' onClick={() => toggleModal(true)}>
                     Add Question
                 </div>
+
+                <div className='btn' onClick={handleLogout}> Logout </div>
+                
+                <Avatar src={user?.photo}/>
+
+                
+                
+
                 <Modal open={isModalOpen} closeIcon={Close} onClose={() => toggleModal(false)} closeOnEsc={true} center closeOnOverlayClick={false} styles={{
                     overlay: {
                         height: "auto"

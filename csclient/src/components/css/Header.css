@@ -9,13 +9,15 @@
     box-shadow: 2px 3px 6px rgba(187, 187, 187, 0.5);
     justify-content: center;
     padding: 3px;
-    background-color: teal;
+    background-color: #0D1C32;
+    color: #eee;
   }
   
   .headercontent {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    width: 96vw;
     /* padding: 5px; */
   }
   
@@ -231,4 +233,14 @@
     .qHeader__input {
       display: none;
     }
+  }
+
+  .btn{
+    font-weight: bold;
+  }
+
+  .btn:hover{
+    color: goldenrod;
+    cursor: pointer;
+
   }

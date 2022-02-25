@@ -1,3 +1,4 @@
+import { Avatar } from '@material-ui/core'
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { selectUser } from '../feature/userSlice'
@@ -9,7 +10,7 @@ function FeedBox() {
     return (
         <div className='feedbox'>
             <div className='feedbox_info'>
-                <img src={user?.photo}/>
+                <Avatar src={user?.photo}/>
                 {/* <Avatar/> */}
 
             </div>
