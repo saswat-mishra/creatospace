@@ -12,7 +12,18 @@ import ReactHtmlParser from 'html-react-parser'
 import { useSelector } from 'react-redux';
 import { selectUser } from '../feature/userSlice';
 import { Avatar } from '@material-ui/core';
+import TimeAgo from 'javascript-time-ago'
+import ReactTimeAgo from "react-time-ago";
+import en from 'javascript-time-ago/locale/en.json'
+TimeAgo.addDefaultLocale(en)
 
+function LastSeen({ date }) {
+    return (
+        <div>
+            <ReactTimeAgo date={date} timeStyle="round" />
+        </div>
+    );
+}
 
 
 function Post({ post }) {
@@ -36,7 +47,7 @@ function Post({ post }) {
         const body = {
             answer: answer,
             questionId: post?._id,
-            user:user
+            user: user
         }
         if (post?._id && answer !== "") {
             await axios.post('/api/answers', body, config).then((res) => {
@@ -54,9 +65,22 @@ function Post({ post }) {
     return (
         <div className='post'>
             <div className='post_info'>
-                <Avatar src={post?.user?.photo}/>
-                <h4>{post?.user?.userName}</h4>
-                <small>Timestamp</small>
+                <div className='post_header'>
+
+                    <Avatar src={post?.user?.photo} />
+                    <div className='label'>
+                        <h4>{post?.user?.userName}</h4>
+
+                        <small >
+                            <LastSeen date={post?.createdAt} />
+                        </small>
+                    </div>
+
+                </div>
+
+                <button style={{ float: "right" }} className='post_answer_btn' onClick={() => setIsModalOpen(true)}>
+                    Answer
+                </button>
 
 
             </div>
@@ -68,9 +92,7 @@ function Post({ post }) {
                     </p>
 
 
-                    <button className='post_answer' onClick={() => setIsModalOpen(true)}>
-                        Answer
-                    </button>
+
                     <Modal open={isModalOpen} closeIcon={Close} onClose={() => setIsModalOpen(false)} closeOnEsc={true} center closeOnOverlayClick={false} styles={{
                         overlay: {
                             height: "auto"
@@ -100,7 +122,7 @@ function Post({ post }) {
                 {(post?.questionUrl !== "") && <img src={post.questionUrl} alt='url'></img>}
 
             </div>
-            <div className='post_footer'>
+            {/* <div className='post_footer'>
                 <div className='post_footer_action'>
                     <FontAwesomeIcon icon={faArrowUp} />
 
@@ -119,7 +141,7 @@ function Post({ post }) {
 
                 </div>
 
-            </div>
+            </div> */}
 
             <p>
                 {post?.allAnswers.length} {post?.allAnswers.length === 1 ? "Answer" : "Answers"}
@@ -131,7 +153,7 @@ function Post({ post }) {
                         post?.allAnswers?.map((_a) => (
 
                             <div className='post_answered'>
-                                <Avatar src={_a?.user?.photo}/>
+                                <Avatar src={_a?.user?.photo} />
                                 <div className='post_answer'>
                                     {ReactHtmlParser(_a?.answer)}
                                 </div>
@@ -139,7 +161,7 @@ function Post({ post }) {
                                 <div className='post_info'>
 
                                     <p>
-                                    {_a?.user?.userName}
+                                        {_a?.user?.userName}
                                     </p>
                                     <span>
                                         Timestamp

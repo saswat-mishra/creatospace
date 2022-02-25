@@ -12,15 +12,16 @@ function FeedBox() {
             <div className='feedbox_info'>
                 <Avatar src={user?.photo}/>
                 {/* <Avatar/> */}
-
-            </div>
-            <div className='query_box'>
+                <div className='query_box'>
                 <h5>
-                    What is your question or link?
+                    What is your question ?
 
                 </h5>
 
             </div>
+
+            </div>
+
             {/* FeedBox */}
         </div>
     )

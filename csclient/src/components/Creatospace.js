@@ -15,7 +15,7 @@ function Creatospace() {
                 <div className='content'>
                     <Sidebar/>
                     <Feed/>
-                    <Widget/>
+                    {/* <Widget/> */}
 
                 </div>
 
