@@ -135,6 +135,7 @@
     cursor: pointer;
     font-weight: 500;
     margin-right: 30px;
+    min-width: 340px;
   }
   
   .modal_title > h5:hover {

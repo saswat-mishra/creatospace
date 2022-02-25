@@ -158,6 +158,16 @@
     color: black;
     font-weight: bold;
   }
+
+  .damn{
+    margin-top: 90px!important;
+  }
+
+  .post_answer{
+    margin: 5px;
+    padding: 5px;
+
+  }
   
   .modal__answer {
     display: flex;

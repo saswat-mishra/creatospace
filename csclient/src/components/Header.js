@@ -93,7 +93,7 @@ function Header() {
                 }}>
                     <div className='modal_title'>
                         <h5>Add Question</h5>
-                        <h5>Share Link</h5>
+                        {/* <h5>Share Link</h5> */}
                         <br></br>
                         {/* 
                         Enter question

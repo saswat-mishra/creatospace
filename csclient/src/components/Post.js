@@ -99,24 +99,25 @@ function Post({ post }) {
                         }
                     }}>
                         <div className='modal_question'>
-                            <h1>This is test question</h1>
-                            <p>Asked by <span>{post?.user?.userName}</span> on timestamp</p>
+                            <h1>{post?.questionName}</h1>
+                            <p>Asked by <span>{post?.user?.userName}</span></p>
 
                         </div>
 
                         <div className='modal_answer'>
+                            <br></br>
 
                             {/* <Quill></Quill> */}
                             <ReactQuill value={answer} onChange={handleQuill} placeholder="Enter your answer"></ReactQuill>
 
                         </div>
 
-                        <div className='modal_buttons'>
+                        <div className='modal_buttons damn'>
                             <button className='cancel' onClick={() => setIsModalOpen(false)}>Cancel</button>
                             <button onClick={handleSubmit} type="submit" className='submit_question'>Submit</button>
 
                         </div>
-                        Test modal
+                        {/* Test modal */}
                     </Modal>
                 </div>
                 {(post?.questionUrl !== "") && <img src={post.questionUrl} alt='url'></img>}
@@ -143,7 +144,7 @@ function Post({ post }) {
 
             </div> */}
 
-            <p>
+            <p style={{"margin-top":"5px"}}>
                 {post?.allAnswers.length} {post?.allAnswers.length === 1 ? "Answer" : "Answers"}
             </p>
 
@@ -152,20 +153,36 @@ function Post({ post }) {
                     {
                         post?.allAnswers?.map((_a) => (
 
+
+
                             <div className='post_answered'>
-                                <Avatar src={_a?.user?.photo} />
+
+                                <div className='post_header'>
+
+                                    <Avatar src={_a?.user?.photo} />
+                                    <div className='label'>
+                                        <h4>{_a?.user?.userName}</h4>
+
+                                        <small >
+                                            <LastSeen date={_a?.createdAt} />
+                                        </small>
+                                    </div>
+
+                                </div>
+                                {/* <Avatar src={_a?.user?.photo} /> */}
+
+                                {/* <p>
+                                    {_a?.user?.userName}
+                                </p>
+                                <span>
+                                    Timestamp
+                                </span> */}
                                 <div className='post_answer'>
                                     {ReactHtmlParser(_a?.answer)}
                                 </div>
-                                Avatar
+
                                 <div className='post_info'>
 
-                                    <p>
-                                        {_a?.user?.userName}
-                                    </p>
-                                    <span>
-                                        Timestamp
-                                    </span>
 
                                 </div>
 
