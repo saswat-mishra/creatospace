@@ -3,6 +3,10 @@
     
 }
 
+.MuiAvatar-circular{
+  margin-right: 4px;
+}
+
 .contents {
     display: flex;
     justify-content: center;
