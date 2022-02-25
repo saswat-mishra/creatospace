@@ -1,8 +1,8 @@
 const express = require('express')
 const router = express.Router()
 
-const questionRouter = require('./Question')
-const answerRouter = require('./Answer')
+const questionRouter = require('./question')
+const answerRouter = require('./answer')
 
 router.get('/', (req, res)=> {
     res.send("This api is meant for Creatospace")
