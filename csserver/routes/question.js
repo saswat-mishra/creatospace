@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 
 const questionDB = require('../models/Question')
+const answerDB = require('../models/Answer')
 
 router.post("/", async (req, res) => {
     console.log(req.body);
@@ -64,5 +65,37 @@ router.post("/", async (req, res) => {
     }
 
   })
+
+  router.get('/:questionId',async(req, res)=>{
+    try{
+      let questionId = req.params.questionId;
+
+      let answers = await answerDB.find({"questionId":questionId});
+
+      
+
+      let result = await questionDB.findById(questionId);
+
+      let response = {
+        "question": result,
+        "answers":answers,
+      }
+
+      
+
+      // console.log(answers);
+
+      // result.aggregate()
+
+
+      return res.status(200).send(response);
+
+    }catch(e){
+      console.log(e)
+
+    };
+  }
+
+  )
 
 module.exports = router
