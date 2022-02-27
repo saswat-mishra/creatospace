@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import HomeIcon from "@material-ui/icons/Home";
 import Modal from "react-responsive-modal";
 import "react-responsive-modal/styles.css"
 import "./css/Header.css";
