@@ -147,6 +147,7 @@ function PostQ({ post, answers }) {
             <p style={{"margin-top":"5px"}}>
                 {answers.length} {answers.length === 1 ? "Answer" : "Answers"}
             </p>
+            <br></br>
 
             <div className='post_answer'>
                 <div className='post_answer_container'>
@@ -180,6 +181,7 @@ function PostQ({ post, answers }) {
                                 <div className='post_answer'>
                                     {ReactHtmlParser(_a?.answer)}
                                 </div>
+                                <br></br>
 
                                 <div className='post_info'>
 
