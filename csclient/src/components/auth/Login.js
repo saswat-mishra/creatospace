@@ -14,7 +14,7 @@ function Login() {
     return (<div className="login_container">
         <div className="login_content">
         <img src={require("../../images/logo.png")} alt='logo' />
-            <button onClick={handleSubmit} className="login_button">Login</button>
+            <button onClick={handleSubmit} className="login_button">Login with Google</button>
 
         </div>
 

@@ -15,7 +15,7 @@ import { Avatar } from '@material-ui/core';
 import TimeAgo from 'javascript-time-ago'
 import ReactTimeAgo from "react-time-ago";
 import en from 'javascript-time-ago/locale/en.json'
-TimeAgo.addDefaultLocale(en)
+// TimeAgo.addDefaultLocale(en)
 
 function LastSeen({ date }) {
     return (
@@ -26,7 +26,7 @@ function LastSeen({ date }) {
 }
 
 
-function Post({ post }) {
+function PostQ({ post, answers }) {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [answer, setAnswer] = useState("")
     const Close = ("Close")
@@ -145,13 +145,13 @@ function Post({ post }) {
             </div> */}
 
             <p style={{"margin-top":"5px"}}>
-                {post?.allAnswers.length} {post?.allAnswers.length === 1 ? "Answer" : "Answers"}
+                {answers.length} {answers.length === 1 ? "Answer" : "Answers"}
             </p>
 
             <div className='post_answer'>
                 <div className='post_answer_container'>
                     {
-                        post?.allAnswers?.map((_a) => (
+                        answers?.map((_a) => (
 
 
 
@@ -203,4 +203,4 @@ function Post({ post }) {
     )
 }
 
-export default Post
+export default PostQ

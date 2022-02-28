@@ -3,18 +3,33 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
+import { Route, Link, BrowserRouter, Routes } from 'react-router-dom'
 import { Provider } from "react-redux"
 import store from './app/store';
+import Question from './components/Question';
 // import axios from 'axios'
 // axios.defaults.port = 80;
 
-ReactDOM.render(
+const routs = (
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <BrowserRouter>
+
+
+        <Routes>
+          <Route exact path="/" element={<App />} />
+          <Route path="/question/:id" element={<Question />} />
+        </Routes>
+
+      </BrowserRouter>
     </Provider>
-  </React.StrictMode>,
+  </React.StrictMode>
+)
+
+ReactDOM.render(
+
+  routs
+  ,
   document.getElementById('root')
 );
 
