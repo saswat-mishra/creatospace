@@ -58,7 +58,7 @@ function Header() {
         <div className='header'>
             <div className='headercontent'>
                 <div className='headerlogo'>
-                    <img src={require("../images/logo.png")} alt='logo' />
+                    <img src={require("../images/logo.png")} alt='logo' onClick={event =>  window.location.href="/"}/>
 
                 </div>
                 <div className='headericons'>
