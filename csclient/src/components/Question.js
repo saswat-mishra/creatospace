@@ -16,8 +16,8 @@ function Question(){
             console.log(res.data)
             setQuestion(res.data.question)
             setAnswers(res.data.answers)
-            console.log(question)
-            console.log(answers)
+            // console.log(question)
+            // console.log(answers)
         })
         .catch((e)=>{
             console.log(e)
@@ -26,14 +26,14 @@ function Question(){
     return(
         <div>
             <Header></Header>
-            {
+            {/* {
                 question?question.questionName:""
             }
             {
                 answers.map((ans,idx)=>(
                     ans.answer
                 ))
-            }
+            } */}
             <div className='postq'>
             {
                 question?<PostQ post={question} answers={answers}/>:""
@@ -42,7 +42,7 @@ function Question(){
 
             {/* <PostQ post = {question}></PostQ> */}
 
-            {id}
+            {/* {id} */}
         </div>
     )
 

@@ -54,7 +54,7 @@ function PostQ({ post, answers }) {
                 console.log(res.data)
                 alert("Answer added succesfully")
                 setIsModalOpen(false)
-                window.location.href = '/'
+                window.location.href = '/question/'+post?._id
             }).catch((e) => {
                 console.log(e)
             })
@@ -63,7 +63,7 @@ function PostQ({ post, answers }) {
     }
 
     return (
-        <div className='post'>
+        <div className='postc'>
             <div className='post_info'>
                 <div className='post_header'>
 
@@ -100,7 +100,7 @@ function PostQ({ post, answers }) {
                     }}>
                         <div className='modal_question'>
                             <h1>{post?.questionName}</h1>
-                            <p>Asked by <span>{post?.user?.userName}</span></p>
+                            <p>Asked by <span>{post?.user?.userName?post?.user?.userName:"Anonymous"}</span></p>
 
                         </div>
 
@@ -161,7 +161,7 @@ function PostQ({ post, answers }) {
 
                                     <Avatar src={_a?.user?.photo} />
                                     <div className='label'>
-                                        <h4>{_a?.user?.userName}</h4>
+                                        <h4>{_a?.user?.userName?_a?.user?.userName:"Anonymous"}</h4>
 
                                         <small >
                                             <LastSeen date={_a?.createdAt} />

@@ -5,10 +5,10 @@ import "react-responsive-modal/styles.css"
 // import ReactQuill, { Quill } from "quill"
 import ReactQuill from 'react-quill'
 import 'quill/dist/quill.snow.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios';
-import ReactHtmlParser from 'html-react-parser'
+// import ReactHtmlParser from 'html-react-parser'
 import { useSelector } from 'react-redux';
 import { selectUser } from '../feature/userSlice';
 import { Avatar } from '@material-ui/core';
@@ -87,7 +87,7 @@ function Post({ post }) {
             <div className='post_body'>
                 <div className='post_question'>
 
-                    <p>
+                    <p  onClick={event =>  window.location.href="/question/"+post?._id}>
                         {post?.questionName}
                     </p>
 
@@ -148,56 +148,6 @@ function Post({ post }) {
                 {post?.allAnswers.length} {post?.allAnswers.length === 1 ? "Answer" : "Answers"}
             </p>
 
-            <div className='post_answer'>
-                <div className='post_answer_container'>
-                    {
-                        post?.allAnswers?.map((_a) => (
-
-
-
-                            <div className='post_answered'>
-
-                                <div className='post_header'>
-
-                                    <Avatar src={_a?.user?.photo} />
-                                    <div className='label'>
-                                        <h4>{_a?.user?.userName}</h4>
-
-                                        <small >
-                                            <LastSeen date={_a?.createdAt} />
-                                        </small>
-                                    </div>
-
-                                </div>
-                                {/* <Avatar src={_a?.user?.photo} /> */}
-
-                                {/* <p>
-                                    {_a?.user?.userName}
-                                </p>
-                                <span>
-                                    Timestamp
-                                </span> */}
-                                <div className='post_answer'>
-                                    {ReactHtmlParser(_a?.answer)}
-                                </div>
-
-                                <div className='post_info'>
-
-
-                                </div>
-
-
-                            </div>
-
-                        ))
-                    }
-
-
-
-
-                </div>
-
-            </div>
 
         </div>
     )
