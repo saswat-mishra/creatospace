@@ -20,6 +20,10 @@
     width: 96vw;
     /* padding: 5px; */
   }
+
+  .right {
+    margin-right: 25px;
+  }
   
   .headerlogo > img {
     height: 50px !important;
@@ -241,7 +245,7 @@
   }
 
   .btn:hover{
-    color: goldenrod;
+    color: rgb(0, 216, 245);
     cursor: pointer;
 
   }

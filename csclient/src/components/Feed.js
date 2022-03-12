@@ -10,6 +10,7 @@ import Modal from "react-responsive-modal";
 // const url = 'http://localhost:80'
 
 function Feed() {
+  
   const [posts, setPosts] = useState([])
   useEffect(() => {
     axios

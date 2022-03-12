@@ -8,6 +8,9 @@ import { signOut } from 'firebase/auth';
 import { auth } from '../firebase';
 import { logout, selectUser } from '../feature/userSlice';
 import { useDispatch, useSelector } from 'react-redux';
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import HomeIcon from '@mui/icons-material/Home';
+
 function Header() {
 
     const [isModalOpen, toggleModal] = useState(false)
@@ -61,27 +64,34 @@ function Header() {
                     <img src={require("../images/logo.png")} alt='logo' onClick={event =>  window.location.href="/"}/>
 
                 </div>
-                <div className='headericons'>
-                    <div className='headericon'>
+                {/* <div className='headericons'>
+                    <div className='headericon'> */}
                         {/* <HomeIcon /> */}
 
-                    </div>
+                    {/* </div> */}
                     {/* TODO add more icons */}
 
-                </div>
-                <div className='headerinput'>
+                {/* </div>
+                <div className='headerinput'> */}
                     {/* <div>search icon</div> */}
                     {/* <div>Search Creatospace</div> */}
 
-                </div>
-                <div className='btn' onClick={() => toggleModal(true)}>
-                    Add Question
+                {/* </div> */}
+                <div style={{justifyContent: 'flex-end', display: 'flex', alignItems: 'center'}}>
+                <div className='right btn' onClick={() => event =>  window.location.href=""}>
+                    <HomeIcon/>
                 </div>
 
-                <div className='btn' onClick={handleLogout}> Logout </div>
+                <div className='right btn' onClick={() => toggleModal(true)}>
+                    <AddCircleOutlineIcon/>
+                </div>
                 
-                <Avatar src={user?.photo}/>
+                <div className='right btn' onClick={handleLogout}> Logout </div>
+                
+                <Avatar className='right' onClick={event =>  window.location.href="/profile"} src={user?.photo}/>
 
+                </div>
+                
                 
                 
 
