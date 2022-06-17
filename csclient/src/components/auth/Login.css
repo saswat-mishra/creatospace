@@ -5,7 +5,7 @@
     height: 100vh;
     width: 100vw;
     box-sizing: border-box;
-    background-color: coral;
+    background: #001d3f;
 }
 
 .login_content{
